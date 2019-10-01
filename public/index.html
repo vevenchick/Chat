@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<!-- saved from url=(0030)https://proekt1-bb3f9.web.app/ -->
+<html>
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<script src="/__/firebase/6.4.0/firebase-app.js"></script>
+	<script src="/__/firebase/6.4.0/firebase-auth.js"></script>
+	<script src="/__/firebase/6.4.0/firebase-storage.js"></script>
+	<script src="/__/firebase/6.4.0/firebase-messaging.js"></script>
+	<script src="/__/firebase/6.4.0/firebase-firestore.js"></script>
+	<script src="/__/firebase/init.js"></script>
+	<script src="scripts/main.js"></script>
+
+<style>
+#chat{
+	width:50%;
+	height: 100%;
+	border: 1px solid black;
+	float: left;
+}
+#messageText{
+	width:48%;
+	height: 30%;
+	
+}
+#userName
+{
+	display: block;
+	width: 48%;
+	margin: 10px;
+}
+body{
+	height: 100%;
+	margin: 0;
+}
+html{
+	height: 100%
+}
+</style>
+
+
+</head>
+
+
+<body>
+<div id="chat">
+</div>
+<textarea  id="messageText" ></textarea>
+
+<input type="text" id="userName"/>
+<button onclick= "sendMessage()"> Send Message </button>
+
+
+</body>
+
+</html>
