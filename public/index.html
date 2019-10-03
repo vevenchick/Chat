@@ -10,46 +10,25 @@
 	<script src="/__/firebase/6.4.0/firebase-messaging.js"></script>
 	<script src="/__/firebase/6.4.0/firebase-firestore.js"></script>
 	<script src="/__/firebase/init.js"></script>
-	<script src="scripts/main.js"></script>
+	<script src="js/main.js"></script>
+	<link href="css/main.css" rel="stylesheet">
 
-<style>
-#chat{
-	width:50%;
-	height: 100%;
-	border: 1px solid black;
-	float: left;
-}
-#messageText{
-	width:48%;
-	height: 30%;
+	<style>
 	
-}
-#userName
-{
-	display: block;
-	width: 48%;
-	margin: 10px;
-}
-body{
-	height: 100%;
-	margin: 0;
-}
-html{
-	height: 100%
-}
-</style>
+	</style>
 
 
 </head>
 
 
 <body>
-<div id="chat">
-</div>
-<textarea  id="messageText" ></textarea>
+	<div id="chat">
+		
+	</div>
+	<textarea id="messageText"></textarea>
 
-<input type="text" id="userName"/>
-<button onclick= "sendMessage()"> Send Message </button>
+	<input type="text" id="userName" />
+	<button onclick="sendMessage()"> Send Message </button>
 
 
 </body>
