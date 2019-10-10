@@ -19,16 +19,6 @@ function saveMessage(userName, messageText, timeStamp) {
     return db.collection('messages').add({ userName: userName, Text: messageText, timeStamp: timeStamp });
 
 }
-function sendMessage() {
-    var messageText = document.getElementById("messageText").value;
-    var userName = document.getElementById("userName").value;
-    var timeStamp = new Date();
-    saveMessage(userName, messageText, timeStamp);
-    var chat = document.getElementById("chat");
-    chat.innerHTML += `<div>
-<span class='un'>`+ userName + `</span>
-<span class='tm'>-(`+ timeStamp + `)-</span>
-<span class='text'>`+ messageText + `</span></div>`
-
-}
+saveMessage(userName,messageText,timeStamp);
+showMessage(userName,messageText,timeStamp);
 
