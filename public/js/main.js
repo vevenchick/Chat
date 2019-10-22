@@ -1,7 +1,15 @@
 console.log("hi!");
 var db = firebase.firestore();
-var messages = db.collection("messages").orderBy("timeStamp","desc").limit(30).get();
-console.log(messages);
+//var messages = db.collection("messages").get();
+var showOtherMes=db.collection("messages").orderBy("timeStamp","desc").limit(30).onSnapshot(function(snapshot){ snapshot.docChanges().forEach(function(change) {
+    if (change.type === "added") {
+        var newMes=change.doc.data();
+        console.log ("New message: ",newMes);
+        showMessage(newMes.userName,newMes.Text,newMes.timeStamp)
+    }})
+})
+
+//console.log(messages);
 
 
 function onGetMessages(snapshot) {
@@ -22,7 +30,7 @@ function showMessage(userName, messageText, timeStamp) {
     chat.scrollTop = 99999; 
     
 }
-messages.then(onGetMessages);
+//  messages.then(onGetMessages);
    
 
 
@@ -38,6 +46,6 @@ function sendMessage()
     var userName = document.getElementById("userName").value;
     var timeStamp = new Date().toLocaleString();
     saveMessage(userName,messageText,timeStamp);
-    showMessage(userName,messageText,timeStamp);
+    
 }
 
