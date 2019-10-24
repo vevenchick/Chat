@@ -1,7 +1,8 @@
 console.log("hi!");
 var db = firebase.firestore();
 //var messages = db.collection("messages").get();
-var showOtherMes=db.collection("messages").orderBy("timeStamp","desc").limit(30).onSnapshot(function(snapshot){ snapshot.docChanges().forEach(function(change) {
+var showOtherMes=db.collection("messages").orderBy("timeStamp","desc").limit(30).onSnapshot(function(snapshot)
+{ snapshot.docChanges().reverse().forEach(function(change) {
     if (change.type === "added") {
         var newMes=change.doc.data();
         console.log ("New message: ",newMes);
