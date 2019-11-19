@@ -1,20 +1,23 @@
 #chat {
     width: 50%;
     height: 100%;
-    border: 1px solid black;
+    border: 2px solid black;
     float: left;
+    overflow: scroll;
 }
 
 #messageText {
     width: 48%;
     height: 30%;
-
+    border: 5px solid red;
 }
 
 #userName {
     display: block;
-    width: 48%;
+    width: 30%;
     margin: 10px;
+    border: 3px solid blueviolet;
+    
 }
 
 body {
