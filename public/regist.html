@@ -1,8 +1,11 @@
 <!DOCTYPE html>
 <html>
+
 <head>
+
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="js/main.js"></script>
     <style>
         body {
             background-image: url('https://wallpaperplay.com/walls/full/0/1/8/33407.jpg');
@@ -10,46 +13,50 @@
             background-repeat: no-repeat;
             background-size: cover;
         }
-		label 
-		{
+
+        label {
             font-family: "Times New Roman", Times, serif;
             font-style: italic;
-			font-size: 18px;
-			font-weight:900;
-			
-		}
-			legend
-		{
+            font-size: 18px;
+            font-weight: 900;
+
+        }
+
+        legend {
             font-family: "Times New Roman", Times, serif;
             font-style: italic;
-			font-size: 25px;
-			font-weight:900;
-		}
-            button{float: right;}
-        
+            font-size: 25px;
+            font-weight: 900;
+        }
+
+        #reg {
+            float: right;
+        }
+
         #Registercontainer {
             max-width: 700px;
             min-width: 320px;
             width: 100%;
             margin: 70px auto;
             border: 2px solid;
-            height:350px ;
+            height: 350px;
             top: 0;
             padding: 15px;
         }
     </style>
 </head>
+
 <body class="text-left">
-    <div id="Registercontainer" class="alert alert-dark" role="alert" >
-        <form action="/send" method="POST">
+    <div id="Registercontainer" class="alert alert-dark" role="alert">
+        <form onsubmit="return registrate()">
             <div class="form-group row">
                 <label class="col-sm-2 col-form-label">Login</label>
                 <div class="col-sm-10">
                     <input type="text" class="form-control" name="Login">
                 </div>
             </div>
- 
- 
+
+
             <div class="form-group row">
                 <label class="col-sm-2 col-form-label">Phone Number</label>
                 <div class="col-sm-10">
@@ -59,9 +66,9 @@
             <div class="form-group row">
                 <label class="col-sm-2 col-form-label">Age:</label>
                 <div class="col-sm-10">
- 
+
                     <select name="age" class="form-control">
- 
+
                         <option value=child>child</option>
                         <option value=tenager>tenager</option>
                         <option value=middle age>middle age</option>
@@ -74,19 +81,19 @@
                     <legend class="col-form-label col-sm-2 pt-0">Choose your sex:</legend>
                     <div class="col-sm-10">
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="sex1">
+                            <input class="form-check-input" type="radio" name="sex">
                             <label class="form-check-label">Male</label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="sex2">
+                            <input class="form-check-input" type="radio" name="sex">
                             <label class="form-check-label">Female</label>
                         </div>
                     </div>
                 </div>
-			</fieldset>
-		
-				
-            <button class="btn btn-lg btn-secondary" onclick="registrate()">Registrate</button>
+            </fieldset>
+
+
+            <input type="submit" class="btn btn-lg btn-secondary" id="reg" value="Reg"></input>
         </form>
     </div>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
@@ -99,4 +106,5 @@
         integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
         crossorigin="anonymous"></script>
 </body>
+
 </html>
