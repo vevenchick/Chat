@@ -52,7 +52,7 @@ function registrate() {
     var phoneNumber = document.getElementById("phoneNumber").value;
     var age = document.getElementById("age").value;
     var sex1 = document.getElementById("sex").value;
-    console.log("Пользвователь" + login + "зарегистрирован с номером:" + phoneNumber);
+    console.log("Пользвователь " + login + " зарегистрирован с номером:" + phoneNumber);
     return false;
 
 }
