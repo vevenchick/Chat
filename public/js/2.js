@@ -15,9 +15,15 @@ ui.start('#hi', {
       var isAnonymous = user.isAnonymous;
       var uid = user.uid;
       var providerData = user.providerData;
+      var phone = user.phoneNumber;
+      document.getElementById('phone').innerHTML=phone;
+      document.getElementById('hi').style.display="none";
+      document.getElementById('logOut').style.display="block"//оставить номер и кнопкуРАБОЧУЮ
       // ...
     } else {
-      // User is signed out.
+      document.getElementById('hi').style.display="visibility: visible";//показать ввод       // User is signed out.
       // ...
     }
   });
+  function logout(){
+    firebase.auth().signOut();}
