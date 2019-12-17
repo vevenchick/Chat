@@ -15,6 +15,8 @@ ui.start('#hi', {
       var isAnonymous = user.isAnonymous;
       var uid = user.uid;
       var providerData = user.providerData;
+      var phone=user.phone;
+      document.getElementById("phone").innerHTML=phone;
       // ...
     } else {
       // User is signed out.
