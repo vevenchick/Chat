@@ -17,11 +17,14 @@ firebase.auth().onAuthStateChanged(function (user) {
     var providerData = user.providerData;
     var phone = user.phoneNumber;
     document.getElementById("phone").innerHTML = phone;
-    document.getElementById('hi').style.display = 'none';
-    document.getElementById('logOut').style.display = 'block'
+    document.getElementById('hi').style.display = "none"
+    document.getElementById('logOut').style.display= "block"
     // ...
   } else {
-    document.getElementById('hi').style.display = "visibility: visible";
+    document.getElementById('hi').style.display = "block";
+    document.getElementById('logOut').style.display = "none"
+     
+    
     // User is signed out.
     // ...
   }
