@@ -1,13 +1,5 @@
 var ui = new firebaseui.auth.AuthUI(firebase.auth());
-ui.start('#hi', {
-  callbacks: {
-    signInSuccess: () => false,
-  },
-  signInOptions: [
-    firebase.auth.PhoneAuthProvider.PROVIDER_ID
-  ],
-  // Other config options...
-});
+
 firebase.auth().onAuthStateChanged(function (user) {
   if (user) {
     // User is signed in.
@@ -20,12 +12,14 @@ firebase.auth().onAuthStateChanged(function (user) {
     var providerData = user.providerData;
     var phone = user.phoneNumber;
     document.getElementById('phone').innerHTML = phone;
-    document.getElementById('hi').style.display = "none";
-    document.getElementById('logOut').style.display = "block";
-    // ...
+    document.getElementById('phone').style.display='block'
+    document.getElementById('hi').style.display = "block"
+    document.getElementById('logout').style.display = "block"
+
   } else {
-    document.getElementById('hi').style.display = "block";
-    document.getElementById('logOut').style.display = "none";
+    document.getElementById('phone').style.display='none'
+    document.getElementById('logout').style.display = "none"
+    uiStart();
 
   }
   return false;
@@ -34,3 +28,15 @@ firebase.auth().onAuthStateChanged(function (user) {
 function logout() {
   firebase.auth().signOut();
 }
+function uiStart() {
+  ui.start('#hi', {
+    callbacks: {
+      signInSuccess: () => false,
+    },
+    signInOptions: [
+      firebase.auth.PhoneAuthProvider.PROVIDER_ID
+    ],
+
+  });
+}
+
