@@ -53,7 +53,30 @@ function registrate() {
     var age = document.getElementById("age").value;
     var sex1 = document.getElementById("sex").value;
     console.log("Пользвователь " + login + " зарегистрирован с номером:" + phoneNumber);
+    
+    var phoneNumber = document.getElementById('phoneNumber').value;
+    var appVerifier = window.recaptchaVerifier;
+    firebase.auth().signInWithPhoneNumber(phoneNumber, appVerifier)
+    .then(function (confirmationResult) {
+      $('#confirmCode').modal(options)
+      console.log('send')
+      window.confirmationResult = confirmationResult;
+    }).catch(function (error) {
+      
+    });
     return false;
 
 }
-
+window.recaptchaVerifier = new firebase.auth.RecaptchaVerifier('recaptcha', {
+    'size': 'normal',
+    'callback': function(response) {
+      
+      
+    },
+    'expired-callback': function() {
+      
+    }
+  });
+  recaptchaVerifier.render().then(function(widgetId) {
+    window.recaptchaWidgetId = widgetId;
+  });
