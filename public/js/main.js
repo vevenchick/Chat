@@ -45,38 +45,53 @@
 
 // }
 
-
+function getCodeFromUserInput()
+{
+  var code=getElementById("checkCode").value;
+}
 
 function registrate() {
-    var login = document.getElementById("login").value;
-    var phoneNumber = document.getElementById("phoneNumber").value;
-    var age = document.getElementById("age").value;
-    var sex1 = document.getElementById("sex").value;
-    console.log("Пользвователь " + login + " зарегистрирован с номером:" + phoneNumber);
-    
-    var phoneNumber = document.getElementById('phoneNumber').value;
-    var appVerifier = window.recaptchaVerifier;
-    firebase.auth().signInWithPhoneNumber(phoneNumber, appVerifier)
+  var login = document.getElementById("login").value;
+  var phoneNumber = document.getElementById("phoneNumber").value;
+  var age = document.getElementById("age").value;
+  var sex1 = document.getElementById("sex").value;
+  console.log("Пользвователь " + login + " зарегистрирован с номером:" + phoneNumber);
+
+  var phoneNumber = document.getElementById('phoneNumber').value;
+  var appVerifier = window.recaptchaVerifier;
+  firebase.auth().signInWithPhoneNumber(phoneNumber, appVerifier)
     .then(function (confirmationResult) {
-      $('#confirmCode').modal(options)
+      $('#confirmCode').modal({});
+      $('#checkCode').on('click', function (e) {
+        var code = getCodeFromUserInput();
+        confirmationResult.confirm(code).then(function (result) {
+
+          var user = result.user;
+          console.log('okey')
+
+        }).catch(function (error) {
+          console.log('error')
+
+        });
+      })
       console.log('send')
       window.confirmationResult = confirmationResult;
     }).catch(function (error) {
-      
+
     });
-    return false;
+  return false;
 
 }
 window.recaptchaVerifier = new firebase.auth.RecaptchaVerifier('recaptcha', {
-    'size': 'normal',
-    'callback': function(response) {
-      
-      
-    },
-    'expired-callback': function() {
-      
-    }
-  });
-  recaptchaVerifier.render().then(function(widgetId) {
-    window.recaptchaWidgetId = widgetId;
-  });
+  'size': 'normal',
+  'callback': function (response) {
+
+
+  },
+  'expired-callback': function () {
+
+  }
+});
+recaptchaVerifier.render().then(function (widgetId) {
+  window.recaptchaWidgetId = widgetId;
+});
