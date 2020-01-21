@@ -45,10 +45,6 @@
 
 // }
 
-function getCodeFromUserInput()
-{
-  var code=getElementById("checkCode").value;
-}
 
 function registrate() {
   var login = document.getElementById("login").value;
@@ -63,7 +59,7 @@ function registrate() {
     .then(function (confirmationResult) {
       $('#confirmCode').modal({});
       $('#checkCode').on('click', function (e) {
-        var code = getCodeFromUserInput();
+        var code = document.getElementById('verCode').value;
         confirmationResult.confirm(code).then(function (result) {
 
           var user = result.user;
