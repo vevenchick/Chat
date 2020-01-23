@@ -1,11 +1,16 @@
 #chat {
+    
     width: 50%;
     height: 100%;
     border: 2px solid black;
     float: left;
     overflow: scroll;
 }
-
+#chatPage{
+    display: none;
+    height: 100%;
+    
+}
 #messageText {
     width: 48%;
     height: 30%;
@@ -32,4 +37,48 @@ html {
 .un
 {
     color:red;
+}
+body {
+    background-image: url('https://ak2.picdn.net/shutterstock/videos/11907302/thumb/7.jpg');
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+label {
+    font-family: "Times New Roman", Times, serif;
+    font-style: italic;
+    font-size: 18px;
+    font-weight: 900;
+
+}
+
+legend {
+    font-family: "Times New Roman", Times, serif;
+    font-style: italic;
+    font-size: 25px;
+    font-weight: 900;
+}
+
+#reg {
+    float: right;
+}
+
+#Registercontainer {
+    display: block;
+    max-width: 700px;
+    min-width: 320px;
+    width: 100%;
+    margin: 70px auto;
+    border: 2px solid;
+    height: 353px;
+    top: 0;
+    padding: 15px;
+}
+#LogInContainer{
+    display: none;
+
+}
+#confirmCode{
+    display: none;
 }
