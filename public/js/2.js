@@ -12,7 +12,7 @@ firebase.auth().onAuthStateChanged(function (user) {
     var providerData = user.providerData;
     var phone = user.phoneNumber;
     document.getElementById('phone').innerHTML = phone;
-
+    document.getElementById("choose").style.display="none";
     //document.getElementById('phone').style.display='block'
     //document.getElementById('hi').style.display = "block"
     //document.getElementById('logout').style.display = "block"
