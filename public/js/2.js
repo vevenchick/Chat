@@ -21,7 +21,7 @@ firebase.auth().onAuthStateChanged(function (user) {
     //document.getElementById('phone').style.display='none'
     //  document.getElementById('logout').style.display = "none"
     uiStart();
-
+    
   }
   return false;
 });
