@@ -10,12 +10,14 @@
 	<script src="/__/firebase/6.4.0/firebase-messaging.js"></script>
 	<script src="/__/firebase/6.4.0/firebase-firestore.js"></script>
 	<script src="/__/firebase/init.js"></script>
-
+	<script src="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.js"></script>
+	<link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.5.2/firebaseui.css" />
 	<link href="css/main.css" rel="stylesheet">
 	<script src="js/2.js"></script>
 
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
 	integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	
 
 
 </head>
@@ -26,7 +28,8 @@
 		<div id="chat"></div>
 		<textarea id="messageText"></textarea>
 		<input type="text" id="userName" />
-		<button onclick="sendMessage()"> Send Message </button>
+		<button class="btn btn-secondary" onclick="sendMessage()"> Send Message </button>
+		
 	</div>
 
 
@@ -86,7 +89,8 @@
 	<div id="LogInContainer">
 		<div id="hi"></div>
 		<p id="phone"></p>
-		<button onclick="logout()" id="logout">Log Out</button>
+		
+
 	</div>
 	<div id="confirmCode" class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
 		aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -107,6 +111,10 @@
 				</div>
 			</div>
 		</div>
+	</div>
+	<div id="choose" >
+		<button class="btn btn-secondary" id="signIn" onclick="changeState(1)">Sign IN</button>
+		<button class="btn btn-secondary" id="signUp" onclick="changeState(2)">Sign Up</button>
 	</div>
 
 

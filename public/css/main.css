@@ -24,6 +24,22 @@
     border: 3px solid blueviolet;
     
 }
+#choose{
+    
+    display:block;
+    position: absolute;
+    top: 50%;
+    left: 40%;
+    margin: -125px 0 0 -125px;
+}
+#signIn{
+    width: 250px;
+    height: 100px;
+}
+#signUp{
+    width: 250px;
+    height: 100px;
+}
 
 body {
     height: 100%;
@@ -65,7 +81,7 @@ legend {
 }
 
 #Registercontainer {
-    display: block;
+    display: none;
     max-width: 700px;
     min-width: 320px;
     width: 100%;
@@ -82,3 +98,4 @@ legend {
 #confirmCode{
     display: none;
 }
+
