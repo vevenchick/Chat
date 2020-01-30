@@ -28,14 +28,12 @@ function showMessage(userName, messageText, timeStamp) {
 
 }
 
-
-
-
 function saveMessage(userName, messageText, timeStamp) {
   console.log("Сообщение " + messageText + "отослано " + userName);
   return db.collection('messages').add({ userName: userName, Text: messageText, timeStamp: timeStamp });
 
 }
+
 
 function sendMessage() {
   var messageText = document.getElementById("messageText").value;
@@ -44,7 +42,6 @@ function sendMessage() {
   saveMessage(userName, messageText, timeStamp);
 
 }
-
 
 function registrate() {
   var login = document.getElementById("login").value;
@@ -64,7 +61,7 @@ function registrate() {
 
           var user = result.user;
           console.log('okey')
-
+          saveUsers(login, phoneNumber, age);
           changeState(4);
         }).catch(function (error) {
 
@@ -73,27 +70,31 @@ function registrate() {
       })
       console.log('send')
       window.confirmationResult = confirmationResult;
-      
 
 
     }).catch(function (error) {
 
     });
+ 
   return false;
+
 }
-window.recaptchaVerifier = new firebase.auth.RecaptchaVerifier('recaptcha', {
-  'size': 'normal',
-  'callback': function (response) {
+
+function recaptcha_init() {
+  window.recaptchaVerifier = new firebase.auth.RecaptchaVerifier('recaptcha', {
+    'size': 'normal',
+    'callback': function (response) {
 
 
-  },
-  'expired-callback': function () {
+    },
+    'expired-callback': function () {
 
-  }
-});
-recaptchaVerifier.render().then(function (widgetId) {
-  window.recaptchaWidgetId = widgetId;
-});
+    }
+  });
+  recaptchaVerifier.render().then(function (widgetId) {
+    window.recaptchaWidgetId = widgetId;
+  });
+}
 function changeState(a) {
   var choose = document.getElementById("choose")
   var Registercontainer = document.getElementById("Registercontainer")
@@ -106,23 +107,27 @@ function changeState(a) {
   if (a == 2) {
     choose.style.display = "none";
     Registercontainer.style.display = "block";
+     recaptcha_init();
   }
   if (a == 3) {
     LogInContainer.style.display = "none";
     chatPage.style.display = "block"
-    if (a == 4) {
-      Registercontainer.style.display = "none";
-      chatPage.style.display = "block"
-
-    }
-    if (a == 5) {
-      chatPage.style.display = "none"
-      choose.style.display = "block";
-    }
   }
+  if (a == 4) {
+    Registercontainer.style.display = "none";
+    chatPage.style.display = "block"
+    
+
+
+  }
+  if (a == 5) {
+    chatPage.style.display = "none"
+    choose.style.display = "block";
+  }
+
 }
-function saveUsers(login, phoneNumber, age, sex) {
-  return db.collection('Users').add({ login: login, phoneNumber: phoneNumber, age: age, sex: sex });
+function saveUsers(login, phoneNumber, age) {
+  return db.collection('Users').add({ login: login, phoneNumber: phoneNumber, age: age });
   console.log("Пользователь " + login + "зарегестрирован с номером " + phoneNumber);
 
 
