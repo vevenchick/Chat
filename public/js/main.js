@@ -51,9 +51,9 @@ function registrate() {
   var phoneNumber = document.getElementById("phoneNumber").value;
   var age = document.getElementById("age").value;
   var sex = document.getElementsByName("sex").value;
-  console.log("Пользвователь " + login + " зарегистрирован с номером:" + phoneNumber);
 
- 
+
+
   var appVerifier = window.recaptchaVerifier;
   firebase.auth().signInWithPhoneNumber(phoneNumber, appVerifier)
     .then(function (confirmationResult) {
@@ -64,20 +64,22 @@ function registrate() {
 
           var user = result.user;
           console.log('okey')
-          saveUsers(login,phoneNumber,age,sex)
+
           changeState(4);
         }).catch(function (error) {
-          
+
 
         });
       })
       console.log('send')
       window.confirmationResult = confirmationResult;
+      
+
+
     }).catch(function (error) {
 
     });
   return false;
-
 }
 window.recaptchaVerifier = new firebase.auth.RecaptchaVerifier('recaptcha', {
   'size': 'normal',
@@ -119,9 +121,8 @@ function changeState(a) {
     }
   }
 }
-function saveUsers(login,phoneNumber,age,sex)
-{
-  return db.collection('users').add({ login: login, phoneNumber: phoneNumber, age: age,sex:sex });
+function saveUsers(login, phoneNumber, age, sex) {
+  return db.collection('Users').add({ login: login, phoneNumber: phoneNumber, age: age, sex: sex });
   console.log("Пользователь " + login + "зарегестрирован с номером " + phoneNumber);
 
 
