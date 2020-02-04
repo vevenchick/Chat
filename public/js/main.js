@@ -75,7 +75,7 @@ function registrate() {
     }).catch(function (error) {
 
     });
- 
+
   return false;
 
 }
@@ -107,7 +107,7 @@ function changeState(a) {
   if (a == 2) {
     choose.style.display = "none";
     Registercontainer.style.display = "block";
-     recaptcha_init();
+    recaptcha_init();
   }
   if (a == 3) {
     LogInContainer.style.display = "none";
@@ -116,9 +116,6 @@ function changeState(a) {
   if (a == 4) {
     Registercontainer.style.display = "none";
     chatPage.style.display = "block"
-    
-
-
   }
   if (a == 5) {
     chatPage.style.display = "none"
@@ -132,6 +129,6 @@ function saveUsers(login, phoneNumber, age) {
 
 
 }
-function getUsersInfo(phoneNumber){
-  var UsersInfo=db.collection('Users').where('phoneNumber', '==', 'phoneNumber').get()
+function getUsersInfo(phoneNumber) {
+  var UsersInfo = db.collection('Users').where('phoneNumber', '==', 'phoneNumber').get()
 }

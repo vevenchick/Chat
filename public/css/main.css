@@ -52,7 +52,7 @@ html {
 
 
 body {
-    background-image: url('https://ak2.picdn.net/shutterstock/videos/11907302/thumb/7.jpg');
+    background-image: url('https://ak5.picdn.net/shutterstock/videos/10872695/thumb/1.jpg');
     background-attachment: fixed;
     background-repeat: no-repeat;
     background-size: cover;
@@ -94,7 +94,4 @@ legend {
 }
 #confirmCode{
     display: none;
-}
-#logOut{
-    height: 38px    ;
 }
