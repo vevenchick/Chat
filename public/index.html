@@ -25,11 +25,11 @@
 
 <body>
 	<div id="chatPage">
-		<div class="rounded"  id="chat"></div>
-		<textarea class="rounded" id="messageText"></textarea>
-		<div ></div>
-		<button class="btn btn-secondary" onclick="sendMessage()"> Send Message </button>
-		<button onclick="logout();changeState(5);" class="btn btn-lg btn-secondary">Log Out</button>
+		<div class="rounded p-3 mb-2 bg-secondary text-white text-monospace"  id="chat"></div>
+		<textarea class="rounded p-3 mb-2 bg-secondary text-white"  id="messageText"></textarea>
+		
+		<button class="btn btn-outline-secondary " onclick="sendMessage()"> Send Message </button>
+		<button id= "logOut" onclick="logout();changeState(5);" class="btn btn-outline-secondary  ">Log Out</button>
 	</div>
 
 

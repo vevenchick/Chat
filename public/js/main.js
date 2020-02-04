@@ -21,9 +21,9 @@ function onGetMessages(snapshot) {
 function showMessage(userName, messageText, timeStamp) {
   var chat = document.getElementById("chat");
   chat.innerHTML += `<div>
-    <span class='un'>`+ userName + `</span>
-    <span class='tm'>-(`+ timeStamp + `)-</span>
-    <span class='text'>`+ messageText + `</span></div>`
+    <span class='text-uppercase font-weight-bold font-italic' >`+ userName + `</span>
+    <span class='font-weight-light '>-(`+ timeStamp + `)-</span>
+    <span class='font-italic'>`+ messageText + `</span></div>`
   chat.scrollTop = 99999;
 
 }
@@ -131,4 +131,7 @@ function saveUsers(login, phoneNumber, age) {
   console.log("Пользователь " + login + "зарегестрирован с номером " + phoneNumber);
 
 
+}
+function getUsersInfo(phoneNumber){
+  var UsersInfo=db.collection('Users').where('phoneNumber', '==', 'phoneNumber').get()
 }
