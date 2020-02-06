@@ -130,5 +130,8 @@ function saveUsers(login, phoneNumber, age) {
 
 }
 function getUsersInfo(phoneNumber) {
-  var UsersInfo = db.collection('Users').where('phoneNumber', '==', 'phoneNumber').get()
+  var UsersInfo = db.collection('Users').where('phoneNumber', '==', phoneNumber).get()
+  .then(function (querySnapshot) {
+    console.log(querySnapshot);
+  })
 }

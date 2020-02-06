@@ -2,7 +2,6 @@ var ui = new firebaseui.auth.AuthUI(firebase.auth());
 
 firebase.auth().onAuthStateChanged(function (user) {
   if (user) {
-    // User is signed in.
     var displayName = user.displayName;
     var email = user.email;
     var emailVerified = user.emailVerified;
@@ -11,13 +10,13 @@ firebase.auth().onAuthStateChanged(function (user) {
     var uid = user.uid;
     var providerData = user.providerData;
     var phone = user.phoneNumber;
-    document.getElementById("choose").style.display="none";
-   
+    document.getElementById("choose").style.display = "none";
+    getUsersInfo(user.phoneNumber);
     changeState(3);
   } else {
-    
+
     uiStart();
-    
+
   }
   return false;
 });
