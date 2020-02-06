@@ -1,5 +1,6 @@
 console.log("hi!");
 var db = firebase.firestore();
+var login = null;
 
 var showOtherMes = db.collection("messages").orderBy("timeStamp", "desc").limit(30).onSnapshot(function (snapshot) {
   snapshot.docChanges().reverse().forEach(function (change) {
@@ -22,10 +23,9 @@ function showMessage(userName, messageText, timeStamp) {
   var chat = document.getElementById("chat");
   chat.innerHTML += `<div>
     <span class='text-uppercase font-weight-bold font-italic' >`+ userName + `</span>
-    <span class='font-weight-light '>-(`+ timeStamp + `)-</span>
+    <span class='font-weight-light '>(`+ timeStamp + `)</span>
     <span class='font-italic'>`+ messageText + `</span></div>`
-  chat.scrollTop = 99999;
-
+    chat.scrollTop = 99999;
 }
 
 function saveMessage(userName, messageText, timeStamp) {
@@ -37,14 +37,15 @@ function saveMessage(userName, messageText, timeStamp) {
 
 function sendMessage() {
   var messageText = document.getElementById("messageText").value;
-  var userName = document.getElementById("userName").value;
+  var userName = login;
   var timeStamp = new Date().toLocaleString();
   saveMessage(userName, messageText, timeStamp);
+  document.getElementById('messageText').value='';
 
 }
 
 function registrate() {
-  var login = document.getElementById("login").value;
+   login = document.getElementById("login").value;
   var phoneNumber = document.getElementById("phoneNumber").value;
   var age = document.getElementById("age").value;
   var sex = document.getElementsByName("sex").value;
@@ -131,7 +132,8 @@ function saveUsers(login, phoneNumber, age) {
 }
 function getUsersInfo(phoneNumber) {
   var UsersInfo = db.collection('Users').where('phoneNumber', '==', phoneNumber).get()
-  .then(function (querySnapshot) {
-    console.log(querySnapshot);
-  })
+    .then(function (querySnapshot) {
+      login=querySnapshot.docs[0].data().login;
+      console.log(querySnapshot);
+    })
 }

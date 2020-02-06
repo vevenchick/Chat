@@ -24,10 +24,10 @@
 
 <body>
 	<div id="chatPage">	
-		<div class="rounded p-3 mb-2 bg-secondary text-white text-monospace"  id="chat"></div>
-		<textarea class="rounded p-3 mb-2 bg-secondary text-white font-italic text-monospace"  id="messageText"></textarea>
+		<div class="rounded p-3 mb-2 bg-secondary text-white text-monospace" 	 id="chat"></div>
+		<input class="rounded p-3 mb-2 bg-secondary text-white font-italic text-monospace"  id="messageText"></input>
 		
-		<button class="btn btn-outline-secondary   btn-lg  " onclick="sendMessage()"> Send Message </button>
+		<button class="btn btn-outline-secondary   btn-lg  " id='SendMessage'onclick="sendMessage()"> Send Message </button>
 		<button id= "logOut" onclick="logout();changeState(5);" class="btn btn-outline-secondary btn-lg  ">Log Out</button>
 	</div>
 
