@@ -12,6 +12,7 @@ firebase.auth().onAuthStateChanged(function (user) {
     var phone = user.phoneNumber;
     document.getElementById("choose").style.display = "none";
     getUsersInfo(user.phoneNumber);
+   
     changeState(3);
   } else {
 

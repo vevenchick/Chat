@@ -1,12 +1,24 @@
+html{
+    height: 100%;
+    background-color: black;
+}
+body{
+    height: 100%;
+    background-color: black !important;
+}
+
+
+
 #chat {
     
-    
+    background-color: #212529;
     width: 70%;
     margin: 10px 15% 30% auto;
-    border: 2px solid;
+    border: 4px solid;
     height: 90%;
     top: 0;
     overflow-y: scroll;
+    border-style: outset;
     
 }
 #chatPage{
@@ -21,9 +33,14 @@
     right: 25%;
     bottom: 0%;
     width:  50%;
+    background-color:black;
+    color: white;
+    border: 3px solid white;
     
-    height: 5%;
-    border: 5px ;
+    -webkit-transition-duration: 0.4s; 
+    transition-duration: 0.4s;
+    height: 6%;
+    
 }
 #SendMessage
 {
@@ -32,8 +49,9 @@
     left:66%;
     right: 3%;
     bottom: 0%;
-    height: 5%;
+    height: 6%;
     width:  9%;
+    font-size: x-large;
 }
 #logOut
 {
@@ -42,7 +60,7 @@
     left:76%;
     right: 15%;
     bottom: 0%;
-    height: 5%;
+    height: 6%;
     width:  9%;
 }
 #userName {
@@ -53,57 +71,74 @@
     
 }
 #choose{
-    
+   
     display:block;
     position: absolute;
     top: 50%;
     left: 40%;
     margin: -125px 0 0 -125px;
 }
-#signIn{
+#signIn, #signUp{
+    background-color:black;
+    color: white;
+    border: 2px solid white;
     width: 250px;
     height: 100px;
+    -webkit-transition-duration: 0.4s; 
+    transition-duration: 0.4s;
+    font-size: large;
+    
 }
-#signUp{
-    width: 250px;
-    height: 100px;
+#signIn:hover, #signUp:hover, #reg:hover,#login:hover, #phoneNumber:hover,#messageText:hover,#SendMessage:hover,#logOut:hover{
+    
+        background-color: white; /* Green */
+        color: black;
+    
 }
-
-body {
-    height: 100%;
-        
+#checkCode:hover{
+    background-color: white;
+    color: black;
+    border-color:black;
 }
-
-html {
-    height: 100%
-   
-}
-
-
-body {
-    background-image: url('https://ak5.picdn.net/shutterstock/videos/10872695/thumb/1.jpg');
-    background-attachment: fixed;
-    background-repeat: no-repeat;
-    background-size: cover;
+#login, #phoneNumber, #age{
+    background-color:black;
+    color: white;
+    border: 1px solid white;
+    
+    -webkit-transition-duration: 0.4s; 
+    transition-duration: 0.4s;
 }
 
 label {
-    font-family: "Times New Roman", Times, serif;
-    font-style: italic;
+    color: white;
     font-size: 18px;
     font-weight: 900;
 
 }
 
 legend {
-    font-family: "Times New Roman", Times, serif;
-    font-style: italic;
     font-size: 25px;
     font-weight: 900;
 }
+#checkCode{
+    background-color:black;
+    color: white;
+    border: 1px solid white;
+    padding: 15px 35px;
+    -webkit-transition-duration: 0.4s; 
+    transition-duration: 0.4s;
 
-#reg {
+}
+
+#reg,#logOut,#SendMessage {
+    padding: 15px 40px;
+    background-color:black;
+    color: white;
+    border: 1px solid white;
     float: right;
+    -webkit-transition-duration: 0.4s; 
+    transition-duration: 0.4s;
+    border-radius: 4px
 }
 
 #Registercontainer {
@@ -112,11 +147,15 @@ legend {
     min-width: 320px;
     width: 100%;
     margin: 70px auto;
-    border: 2px solid;
-    height: 353px;
+    border: 6px solid white;
+    height: 291px;
     top: 0;
     padding: 15px;
+    border-radius: 6px;
+    border-style: dotted;
+
 }
+
 #LogInContainer{
     display: none;
 

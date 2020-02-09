@@ -24,7 +24,7 @@ function showMessage(userName, messageText, timeStamp) {
   chat.innerHTML += `<div>
     <span class='text-uppercase font-weight-bold font-italic' >`+ userName + `</span>
     <span class='font-weight-light '>(`+ timeStamp + `)</span>
-    <span class='font-italic'>`+ messageText + `</span></div>`
+    <span class='text-monospace'>`+ messageText + `</span></div>`
     chat.scrollTop = 99999;
 }
 
@@ -61,7 +61,13 @@ function registrate() {
         confirmationResult.confirm(code).then(function (result) {
 
           var user = result.user;
-          console.log('okey')
+          console.log('okey');
+          for (var i=0;i<=db.collection("Users").size;i++){
+            if(a){
+
+            }
+      
+          }
           saveUsers(login, phoneNumber, age);
           changeState(4);
         }).catch(function (error) {

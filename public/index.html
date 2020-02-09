@@ -24,18 +24,18 @@
 
 <body>
 	<div id="chatPage">	
-		<div class="rounded p-3 mb-2 bg-secondary text-white text-monospace" 	 id="chat"></div>
-		<input class="rounded p-3 mb-2 bg-secondary text-white font-italic text-monospace"  id="messageText"></input>
+		<div class="rounded p-3 mb-2  text-white text-monospace" 	 id="chat"></div>
+		<input class="rounded p-3 mb-2   text-monospace"  id="messageText"></input>
 		
-		<button class="btn btn-outline-secondary   btn-lg  " id='SendMessage'onclick="sendMessage()"> Send Message </button>
-		<button id= "logOut" onclick="logout();changeState(5);" class="btn btn-outline-secondary btn-lg  ">Log Out</button>
+		<button class="   btn-lg  " id='SendMessage'onclick="sendMessage()">Send</button>
+		<button id= "logOut" onclick="logout();changeState(5);" class=" btn-lg  ">Log Out</button>
 	</div>
 
 
-	<div class="text-left font-italic text-monospace" id="Registercontainer" class="alert alert-dark" role="alert">
+	<div class="text-left   text-monospace  " id="Registercontainer"  role="alert">
 		<form onsubmit="return registrate()">
 			<div class="form-group row">
-				<label class="col-sm-2 col-form-label font-italic text-monospace">Login</label>
+				<label class="col-sm-2 col-form-label ">Login</label>
 				<div class="col-sm-10">
 					<input type="text" class="form-control" id="login">
 				</div>
@@ -43,42 +43,27 @@
 
 
 			<div class="form-group row">
-				<label class="col-sm-2 col-form-label font-italic text-monospace">Phone Number</label>
+				<label class="col-sm-2 col-form-label ">Phone Number</label>
 				<div class="col-sm-10">
 					<input type="tel" id="phoneNumber" class="form-control">
 				</div>
 			</div>
 			<div class="form-group row">
-				<label class="col-sm-2 col-form-label font-italic text-monospace">Age:</label>
+				<label class="col-sm-2 col-form-label ">Age:</label>
 				<div class="col-sm-10">
 
 					<select id="age" class="form-control">
 
-						<option value="child" class-="font-italic text-monospace">child</option>
-						<option value="tenager" class-="font-italic text-monospace">tenager</option>
-						<option value="middle age" class-="font-italic text-monospace">middle age</option>
-						<option value="old" class-="font-italic text-monospace">old</option>
+						<option value="child" >child</option>
+						<option value="tenager" >tenager</option>
+						<option value="middle age" >middle age</option>
+						<option value="old" >old</option>
 					</select>
 				</div>
 			</div>
-			<fieldset class="form-group">
-				<div class="row">
-					<legend class="col-form-label col-sm-2 pt-0">Choose your sex:</legend>
-					<div class="col-sm-10">
-						<div class="form-check">
-							<input class="form-check-input" type="radio" id="sex" name="sex">
-							<label class="form-check-label">Male</label>
-						</div>
-						<div class="form-check">
-							<input class="form-check-input" type="radio" id="sex" name="sex">
-							<label class="form-check-label">Female</label>
-						</div>
-					</div>
-				</div>
-			</fieldset>
+			
 
-
-			<input type="submit" class="btn btn-lg btn-secondary" id="reg" value="Reg"></input>
+			<input type="submit" class="btn btn-lg btn-secondary" id="reg" value="Registrate"></input>
 			<div id="recaptcha"></div>
 		</form>
 
@@ -105,15 +90,16 @@
 					<input type="text" class="form-control" id="verCode">
 				</div>
 				<div class="modal-footer">
-					<button type="button" id="checkCode" class="btn btn-secondary" data-dismiss="modal">Sends</button>
+					<button type="button" id="checkCode"  data-dismiss="modal">Sends</button>
 
 				</div>
 			</div>
 		</div>
 	</div>
-	<div id="choose" class="font-italic text-monospace" >
-		<button class="btn btn-secondary" id="signIn" onclick="changeState(1)">Sign IN</button>
-		<button class="btn btn-secondary" id="signUp" onclick="changeState(2)">Sign Up</button>
+	<div id="choose" class="font-italic text-monospace" >	
+		
+		<button class="btn btn-secondary " id="signIn" onclick="changeState(1)">Sign IN</button>
+		<button class="btn btn-secondary " id="signUp" onclick="changeState(2)">Sign Up</button>
 	</div>
 
 
