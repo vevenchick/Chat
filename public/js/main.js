@@ -25,7 +25,7 @@ function showMessage(userName, messageText, timeStamp) {
     <span class='text-uppercase font-weight-bold font-italic' >`+ userName + `</span>
     <span class='font-weight-light '>(`+ timeStamp + `)</span>
     <span class='text-monospace'>`+ messageText + `</span></div>`
-    chat.scrollTop = 99999;
+  chat.scrollTop = 99999;
 }
 
 function saveMessage(userName, messageText, timeStamp) {
@@ -40,12 +40,12 @@ function sendMessage() {
   var userName = login;
   var timeStamp = new Date().toLocaleString();
   saveMessage(userName, messageText, timeStamp);
-  document.getElementById('messageText').value='';
+  document.getElementById('messageText').value = '';
 
 }
 
 function registrate() {
-   login = document.getElementById("login").value;
+  login = document.getElementById("login").value;
   var phoneNumber = document.getElementById("phoneNumber").value;
   var age = document.getElementById("age").value;
   var sex = document.getElementsByName("sex").value;
@@ -62,11 +62,14 @@ function registrate() {
 
           var user = result.user;
           console.log('okey');
-          for (var i=0;i<=db.collection("Users").size;i++){
-            if(a){
+          for (var i = 0; i <= db.collection("Users").size; i++) {
+            if (phoneNumber == querySnapshot.docs[i].data().phoneNumber) {
 
             }
-      
+            else {
+              saveUsers(login, phoneNumber, age);
+              changeState(4);
+            }
           }
           saveUsers(login, phoneNumber, age);
           changeState(4);
@@ -139,7 +142,7 @@ function saveUsers(login, phoneNumber, age) {
 function getUsersInfo(phoneNumber) {
   var UsersInfo = db.collection('Users').where('phoneNumber', '==', phoneNumber).get()
     .then(function (querySnapshot) {
-      login=querySnapshot.docs[0].data().login;
+      login = querySnapshot.docs[0].data().login;
       console.log(querySnapshot);
     })
 }
