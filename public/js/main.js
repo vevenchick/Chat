@@ -62,9 +62,9 @@ function registrate() {
 
           var user = result.user;
           console.log('okey');
-          for (var i = 0; i <= db.collection("Users").size; i++) {
+          for (var i = 0; i <= db.collection("Users").docs.length; i++) {
             if (phoneNumber == querySnapshot.docs[i].data().phoneNumber) {
-
+             console.log('dont new user'); 
             }
             else {
               saveUsers(login, phoneNumber, age);
@@ -145,4 +145,10 @@ function getUsersInfo(phoneNumber) {
       login = querySnapshot.docs[0].data().login;
       console.log(querySnapshot);
     })
+}
+function sizeOfUsers()
+{
+  var sizeUsers = db.collection("Users").get().then(function (querySnapshot) {
+    var size=querySnapshot.size;
+  });
 }
