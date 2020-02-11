@@ -1,6 +1,7 @@
 console.log("hi!");
 var db = firebase.firestore();
 var login = null;
+var user = null;
 
 var showOtherMes = db.collection("messages").orderBy("timeStamp", "desc").limit(30).onSnapshot(function (snapshot) {
   snapshot.docChanges().reverse().forEach(function (change) {
@@ -37,7 +38,7 @@ function saveMessage(userName, messageText, timeStamp) {
 
 function sendMessage() {
   var messageText = document.getElementById("messageText").value;
-  var userName = login;
+  var userName = user.login;
   var timeStamp = new Date().toLocaleString();
   saveMessage(userName, messageText, timeStamp);
   document.getElementById('messageText').value = '';
@@ -45,10 +46,10 @@ function sendMessage() {
 }
 
 function registrate() {
-  login = document.getElementById("login").value;
+  var login = document.getElementById("login").value;
   var phoneNumber = document.getElementById("phoneNumber").value;
   var age = document.getElementById("age").value;
-  var sex = document.getElementsByName("sex").value;
+ 
 
 
 
@@ -59,20 +60,18 @@ function registrate() {
       $('#checkCode').on('click', function (e) {
         var code = document.getElementById('verCode').value;
         confirmationResult.confirm(code).then(function (result) {
-
           var user = result.user;
           console.log('okey');
-          for (var i = 0; i <= db.collection("Users").docs.length; i++) {
-            if (phoneNumber == querySnapshot.docs[i].data().phoneNumber) {
-             console.log('dont new user'); 
+          db.collection("Users").where("phoneNumber", "==", phoneNumber).get().then(function (snapshot) {
+            if (snapshot.docs.length == 0) {
+              user = { login: login, phoneNumber: phoneNumber, age: age };
+              saveUser(user);
             }
-            else {
-              saveUsers(login, phoneNumber, age);
-              changeState(4);
-            }
-          }
-          saveUsers(login, phoneNumber, age);
-          changeState(4);
+            else
+              user = snapshot.docs[0].data();
+            changeState(4);
+          });
+
         }).catch(function (error) {
 
 
@@ -133,22 +132,15 @@ function changeState(a) {
   }
 
 }
-function saveUsers(login, phoneNumber, age) {
-  return db.collection('Users').add({ login: login, phoneNumber: phoneNumber, age: age });
+function saveUser(user) {
   console.log("Пользователь " + login + "зарегестрирован с номером " + phoneNumber);
-
-
+  return db.collection('Users').add(user);
 }
-function getUsersInfo(phoneNumber) {
-  var UsersInfo = db.collection('Users').where('phoneNumber', '==', phoneNumber).get()
+
+ function getUsersInfo(phoneNumber) {
+   db.collection('Users').where('phoneNumber', '==', phoneNumber).get()
     .then(function (querySnapshot) {
-      login = querySnapshot.docs[0].data().login;
-      console.log(querySnapshot);
-    })
-}
-function sizeOfUsers()
-{
-  var sizeUsers = db.collection("Users").get().then(function (querySnapshot) {
-    var size=querySnapshot.size;
-  });
+      user = querySnapshot.docs[0].data();
+       console.log(querySnapshot);
+     })
 }
