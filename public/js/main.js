@@ -49,7 +49,7 @@ function registrate() {
   var login = document.getElementById("login").value;
   var phoneNumber = document.getElementById("phoneNumber").value;
   var age = document.getElementById("age").value;
- 
+
 
 
 
@@ -137,21 +137,22 @@ function saveUser(user) {
   return db.collection('Users').add(user);
 }
 
- function getUsersInfo(phoneNumber) {
-   db.collection('Users').where('phoneNumber', '==', phoneNumber).get()
+function getUsersInfo(phoneNumber) {
+  db.collection('Users').where('phoneNumber', '==', phoneNumber).get()
     .then(function (querySnapshot) {
       user = querySnapshot.docs[0].data();
-       console.log(querySnapshot);
-     })
+      console.log(querySnapshot);
+    })
 }
-function random(){
-  var id="";
-  var all="QWERTYUIOPASDFGHJKLZXCVBNMqwertyuiopasdfghjklzxcvbnm1234567890";
-  
-  for (var i = 0; i < 4; i++)
-   id += all.charAt(Math.random() * all.length);
+function random() {
+  var id = "";
+  var all = "QWERTYUIOPASDFGHJKLZXCVBNMqwertyuiopasdfghjklzxcvbnm1234567890";
 
+  for (var i = 0; i < 4; i++)
+
+    //id += all.charAt(Math.random() * all.length);
+    id +=all[Math.ceil(Math.random() * (all.length-1))];
   return id;
 }
 
-  
+
